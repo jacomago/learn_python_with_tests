@@ -4,8 +4,10 @@ def guess_workflow(number):
     guess = input("Guess a number, between 1 and 100:")
     guess = int(guess)
 
-    if guess != number:
-        print("I'm sorry you got it wrong.")
+    if guess < number:
+        print("Too small!")
+    elif guess > number:
+        print("Too big!")
     else:
         print("You got it right!")
 
