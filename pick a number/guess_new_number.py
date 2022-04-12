@@ -17,7 +17,7 @@ def play_game(a, b, guesses):
     print("I'm sorry you ran out of guesses.")
 
 def guess_workflow(number, a, b):
-    guess = input("Guess a number, between " + str(a) +" and "+ str(b) + ":")
+    guess = input("Guess a number, between " + str(a) + " and " + str(b) + ":")
     guess = int(guess)
 
     if guess < number:
