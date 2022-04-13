@@ -8,10 +8,8 @@ def get_ranges():
 
 def play_game(a, b, guesses):
     number = random.randint(a, b)
-    correct = False
     for i in range(guesses):
-        correct = guess_workflow(number, a, b)
-        if correct:
+        if guess_workflow(number, a, b):
             return
     
     print("I'm sorry you ran out of guesses., you are dumb")
