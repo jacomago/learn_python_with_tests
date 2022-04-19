@@ -14,18 +14,17 @@ def main():
         "wombat zebra "
     ).split()
     N = max([len(word) for word in words])
-
     word_dict = {n: [word for word in words if len(word) == n] for n in range(3, N + 1)}
     word_length = 5
     words = word_dict[word_length]
 
     print(
-        "Hello, welcome to wordle. You must guess the correct ", word_length, " word."
+        "Hello, welcome to wordle. You must guess the correct ", word_length, "letter length word."
     )
     c_mod = "*"
     p_mod = "_"
     print(
-        "If you get the correct place, you will see ", c_mod, "surrouding the letter."
+        "If you get the correct place, you will see ", c_mod, "surrounding the letter."
     )
     print(
         "If you get the correct letter but wrong place, you will see ",
@@ -79,12 +78,11 @@ def check_end_game(guess, word, n):
 
 def get_guess(words):
     print("Please guess a word.", end=" ")
-    not_in_word_list = True
-    while not_in_word_list:
+    while True:
         guess = input("Your word is?")
-        print("Yout guess is ", guess)
+        print("Your guess is ", guess)
         if guess.lower() in words:
-            not_in_word_list = False
+            break
         print("Please guess a word from word the list.")
     return guess
 
