@@ -62,6 +62,7 @@ class Game:
     def won(self, player):
         winning_list = [player for i in range(self.board_size)]
 
+        # row check
         for row in self.board:
             if row == winning_list:
                 return True
