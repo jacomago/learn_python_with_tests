@@ -12,6 +12,7 @@ class Position:
 def win_message(player):
     return "Player " + player + " won!"
 
+
 class Game:
     def __init__(
         self, board_size=3, empty_board_str="_", player_one="o", player_two="x"
@@ -40,7 +41,7 @@ class Game:
                 print("Position used.")
         return position
 
-    def update_board(self, player, position):        
+    def update_board(self, player, position):
         self.board[position.y][position.x] = player
 
     def reset_player(self):
@@ -57,7 +58,6 @@ class Game:
 
         self.update_board(player, position)
         self.reset_player()
-
 
     def won(self, player):
         winning_list = [player for i in range(self.board_size)]
@@ -101,7 +101,6 @@ class Game:
             else:
                 return board_state + "\n" + "No winners!"
         return board_state
-            
 
     def complete_board(self):
         for row in self.board:
@@ -111,17 +110,22 @@ class Game:
         return True
 
     def finished(self):
-        if self.won(self.player_one) or self.won(self.player_two) or self.complete_board():
+        if (
+            self.won(self.player_one)
+            or self.won(self.player_two)
+            or self.complete_board()
+        ):
             return True
         return False
 
 
-def main():
+def main_method():
+    print("Start game")
     game = Game()
     while not game.finished():
         game.play()
         print(game)
 
 
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    main_method()
