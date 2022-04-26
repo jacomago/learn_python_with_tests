@@ -1,9 +1,9 @@
 # Examples of common programming topics implemented in Python
 
-- number
+- [number]( https://github.com/jacomago/invent_with_python/blob/5cc0c9713a1db728769fecda142a024b30291b3a/examples/test_numbers.py)
   - int
   - float
-- variables
+- [variables]( https://github.com/jacomago/invent_with_python/blob/5cc0c9713a1db728769fecda142a024b30291b3a/examples/test_variables.py)
   - assign
   - type
   - change
@@ -11,7 +11,7 @@
   - join
   - alter
     - immutability
-- tuple
+- [tuples]( https://github.com/jacomago/invent_with_python/blob/5cc0c9713a1db728769fecda142a024b30291b3a/examples/test_tuples.py)
   - creation
   - indexing
   - values
