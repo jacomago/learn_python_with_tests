@@ -1,0 +1,64 @@
+# Examples of common programming topics implemented in Python
+
+- number
+  - int
+  - float
+- variables
+  - assign
+  - type
+  - change
+- string
+  - join
+  - alter
+    - immutability
+- tuple
+  - creation
+  - indexing
+  - values
+- if
+  - else
+  - elsif
+  - Boolean logic
+    - or
+    - and
+    - not
+- loop
+  - while
+  - for
+    - over range
+- cli
+  - print
+  - input
+- functions
+  - input variables
+    - named
+    - typed
+    - default values
+  - output
+    - one
+    - many
+    - typed
+- list
+  - loop over index
+  - loop over value
+  - comprehension
+  - in
+  - append
+- set
+  - creation
+    - from list
+    - comprehension
+  - in
+  - add
+- dict
+  - creation
+  - get value
+  - get key and value
+  - loop over key
+  - loop over value
+- class
+  - object creation
+  - methods
+    - object method
+    - class method
+    - static method
