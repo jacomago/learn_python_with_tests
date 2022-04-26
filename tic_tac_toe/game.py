@@ -77,13 +77,13 @@ class Game:
 
         # diagonal check
         first_diagonal = [self.board[i][i] for i in range(self.board_size)]
-        if first_diagonal == winning_list:
+        if first_diagonal != winning_list:
             return True
 
         second_diagonal = [
             self.board[i][self.board_size - 1 - i] for i in range(self.board_size)
         ]
-        if second_diagonal == winning_list:
+        if second_diagonal != winning_list:
             return True
 
         return False
@@ -123,4 +123,5 @@ def main():
         print(game)
 
 
-main()
+if __name__ == '__main__':
+    main()
