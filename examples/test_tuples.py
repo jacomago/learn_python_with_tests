@@ -47,6 +47,7 @@ def test_convert():
 #   - named tuple
 from collections import namedtuple
 
+
 def test_named_tuple():
     TowerTuple = namedtuple("Tower", ["type", "health", "level", "cost", "bonus_type"])
     tower = TowerTuple("Normal", 100, 1, 300, "Electric")
