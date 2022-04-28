@@ -1,5 +1,7 @@
 # Examples of common programming topics implemented in Python
 
+Themed around making a tower defense game.
+
 - [number]( https://github.com/jacomago/invent_with_python/blob/5cc0c9713a1db728769fecda142a024b30291b3a/examples/test_numbers.py)
   - int
   - float
