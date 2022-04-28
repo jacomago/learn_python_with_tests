@@ -18,6 +18,7 @@
     "spellright.documentTypes": [
         "markdown",
         "latex",
-        "plaintext"
+        "plaintext",
+        "python"
     ]
 }
