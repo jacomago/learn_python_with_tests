@@ -1,19 +1,19 @@
 
 def test_assign():
-    x = 5
-    assert x == 5
+    health = 5
+    assert health == 5
 
 def test_change():
-    x = 5
-    x = 6
-    assert x == 6
+    health = 5
+    health = 6
+    assert health == 6
 
 def test_type():
-    x = 5
-    assert type(x) is int
+    health = 5
+    assert type(health) is int
 
 def test_mult_assign():
-    x = 5
-    y = x
-    assert y == x
-    assert y == 5
+    health = 5
+    new_health = health
+    assert new_health == health
+    assert new_health == 5
