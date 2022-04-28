@@ -1,18 +1,19 @@
-def print_hello(name):
-    print('hello', name)
+def print_tower_level(level):
+    print("Level", level)
 
 
-def test_spam(capsys):
-    print_hello("World")
+def test_print_tower_level(capsys):
+    print_tower_level(10)
     captured = capsys.readouterr()
-    assert captured.out == 'hello World\n'
+    assert captured.out == "Level 10\n"
 
-def get_input():
-    name = input("What is your name?")
-    return name
 
-def test_in(monkeypatch):
-    monkeypatch.setattr('builtins.input', lambda _: "World")
-    name = get_input()
-    assert name == "World"
-    
+def get_tower_choice():
+    choice = input("What tower do you want to build?")
+    return choice
+
+
+def test_tower_choice(monkeypatch):
+    monkeypatch.setattr("builtins.input", lambda _: "Cannon")
+    choice = get_tower_choice()
+    assert choice == "Cannon"
