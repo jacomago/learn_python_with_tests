@@ -1,5 +1,6 @@
 import pytest
 
+
 def test_string():
     x = "Cannon"
     assert type(x) is str
