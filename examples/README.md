@@ -2,36 +2,36 @@
 
 Themed around making a tower defense game.
 
-- [number]( https://github.com/jacomago/invent_with_python/blob/5cc0c9713a1db728769fecda142a024b30291b3a/examples/test_numbers.py)
+- [number]( https://github.com/jacomago/invent_with_python/blob/master/examples/test_numbers.py)
   - int
   - float
-- [variables]( https://github.com/jacomago/invent_with_python/blob/5cc0c9713a1db728769fecda142a024b30291b3a/examples/test_variables.py)
+- [variables]( https://github.com/jacomago/invent_with_python/blob/master/examples/test_variables.py)
   - assign
   - type
   - change
-- string
+- [string](https://github.com/jacomago/invent_with_python/blob/master/examples/test_string.py)
   - join
   - alter
     - immutability
-- [tuples]( https://github.com/jacomago/invent_with_python/blob/5cc0c9713a1db728769fecda142a024b30291b3a/examples/test_tuples.py)
+- [tuples]( https://github.com/jacomago/invent_with_python/blob/master/examples/test_tuples.py)
   - creation
   - indexing
   - values
-- if
+- [if](https://github.com/jacomago/invent_with_python/blob/master/examples/test_boolean.py)
   - else
   - elsif
   - Boolean logic
     - or
     - and
     - not
-- loop
+- [loop](https://github.com/jacomago/invent_with_python/blob/master/examples/test_loop.py)
   - while
   - for
     - over range
-- cli
+- [cli](https://github.com/jacomago/invent_with_python/blob/master/examples/test_cli.py)
   - print
   - input
-- functions
+- [functions](https://github.com/jacomago/invent_with_python/blob/master/examples/test_fuctions.py)
   - input variables
     - named
     - typed
@@ -40,25 +40,25 @@ Themed around making a tower defense game.
     - one
     - many
     - typed
-- list
+- [list](https://github.com/jacomago/invent_with_python/blob/master/examples/test_list.py)
   - loop over index
   - loop over value
   - comprehension
   - in
   - append
-- set
+- [set](https://github.com/jacomago/invent_with_python/blob/master/examples/test_set.py)
   - creation
     - from list
     - comprehension
   - in
   - add
-- dict
+- [dict](https://github.com/jacomago/invent_with_python/blob/master/examples/test_dict.py)
   - creation
   - get value
   - get key and value
   - loop over key
   - loop over value
-- class
+- [class](https://github.com/jacomago/invent_with_python/blob/master/examples/test_class.py)
   - object creation
   - methods
     - object method
