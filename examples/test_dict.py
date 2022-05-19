@@ -12,6 +12,11 @@ def test_create():
     d["power"] = 20.0
     assert d == {"damage": 10, "power": 20.0}
 
+def test_comp():
+    d = {i: i*2 for i in [3, 4]}
+    assert d == {3: 6, 4: 8}
+
+
 def test_get_val():
     d = {"damage": 10, "power": 20.0}
     assert d["damage"] == 10
