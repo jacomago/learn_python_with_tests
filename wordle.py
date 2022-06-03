@@ -29,7 +29,7 @@ def main():
     print(
         "If you get the correct letter but wrong place, you will see ",
         p_mod,
-        "surrouding the letter.",
+        "surrounding the letter.",
     )
 
     word = random.choice(words)
