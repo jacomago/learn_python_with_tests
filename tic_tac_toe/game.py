@@ -19,10 +19,22 @@ class Game:
         self.player_two = player_two
         self.current_player = player_one
 
+    def board_state(self):
+        return "\n".join("|".join(row) for row in self.board)
+
+    def update_board(self, player, position):
+        self.board[position.y][position.x] = player
+
     def position_used(self, position):
         if self.board[position.y][position.x] != self.empty_board_str:
             return True
         return False
+
+    def reset_player(self):
+        if self.current_player == self.player_one:
+            self.current_player = self.player_two
+        else:
+            self.current_player = self.player_one
 
     def get_position(self):
         while True:
@@ -32,15 +44,6 @@ class Game:
             else:
                 print("Position used.")
         return position
-
-    def update_board(self, player, position):
-        self.board[position.y][position.x] = player
-
-    def reset_player(self):
-        if self.current_player == self.player_one:
-            self.current_player = self.player_two
-        else:
-            self.current_player = self.player_one
 
     def play(self, player=None, position=None):
         if position == None:
@@ -80,8 +83,6 @@ class Game:
 
         return False
 
-    def board_state(self):
-        return "\n".join("|".join(row) for row in self.board)
 
     def __str__(self):
         board_state = self.board_state()

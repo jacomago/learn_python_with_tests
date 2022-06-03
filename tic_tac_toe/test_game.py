@@ -10,6 +10,18 @@ def test_win_message():
 def test_create_game():
     g = Game()
     assert g.empty_board_str == "_"
+    assert g.board == [["_", "_", "_"], ["_", "_", "_"], ["_", "_", "_"]]
+    assert g.current_player == "o"
+
+
+def test_start_board_state():
+    g = Game()
+    assert (
+        g.board_state()
+        == """_|_|_
+_|_|_
+_|_|_"""
+    )
 
 
 def test_update_board():
@@ -18,6 +30,38 @@ def test_update_board():
     assert g.board[2][1] == g.player_one
 
 
-def test_game_start():
+def test_board_state():
+    g = Game()
+    g.update_board(g.player_one, Position(1, 2))
+    assert (
+        g.board_state()
+        == """_|_|_
+_|_|_
+_|o|_"""
+    )
+
+
+def test_position_used():
+    g = Game()
+    p = Position(1, 2)
+    g.update_board(g.player_one, p)
+    assert g.position_used(p)
+
+
+def test_reset_player():
+    g = Game()
+    assert g.current_player == g.player_one
+    g.reset_player()
+    assert g.current_player == g.player_two
+
+
+def test_get_position(monkeypatch):
+    g = Game()
+    pn = Position(0, 1)
+    monkeypatch.setattr("builtins.input", lambda _: pn.input_str())
+    pgn = g.get_position()
+    assert pgn == pn
+
+def test_game_finished():
     g = Game()
     assert not g.finished()
