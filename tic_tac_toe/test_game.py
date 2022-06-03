@@ -1,6 +1,6 @@
 from game import win_message
 from game import Game
-from game import Position
+from position import Position
 
 
 def test_win_message():

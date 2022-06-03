@@ -1,12 +1,4 @@
-class Position:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def get():
-        pos = input("Which position, x, y?")
-        pos = pos.split(",")
-        return Position(int(pos[0]) - 1, int(pos[1]) - 1)
+from position import *
 
 
 def win_message(player):
@@ -77,13 +69,13 @@ class Game:
 
         # diagonal check
         first_diagonal = [self.board[i][i] for i in range(self.board_size)]
-        if first_diagonal != winning_list:
+        if first_diagonal == winning_list:
             return True
 
         second_diagonal = [
             self.board[i][self.board_size - 1 - i] for i in range(self.board_size)
         ]
-        if second_diagonal != winning_list:
+        if second_diagonal == winning_list:
             return True
 
         return False
