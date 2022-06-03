@@ -153,7 +153,7 @@ def test_won_second_diag():
     assert g.won(game_player)
 
 
-def play_complete_board(g: Game):
+def play_complete_board_without_win(g: Game):
     g.play(player=g.player_one, position=Position(0, 0))
     g.play(player=g.player_two, position=Position(0, 1))
     g.play(player=g.player_two, position=Position(0, 2))
@@ -168,7 +168,7 @@ def play_complete_board(g: Game):
 def test_complete_board():
     g = Game()
     assert not g.complete_board()
-    play_complete_board(g)
+    play_complete_board_without_win(g)
     assert g.complete_board()
 
 
@@ -186,7 +186,7 @@ def test_game_finished_won():
 
 def test_game_finished_complete_board():
     g = Game()
-    play_complete_board(g)
+    play_complete_board_without_win(g)
     assert not g.won(g.player_one)
     assert not g.won(g.player_two)
     assert g.finished()
@@ -206,5 +206,5 @@ def test_str_win():
 
 def test_str_stalemate():
     g = Game()
-    play_complete_board(g)
+    play_complete_board_without_win(g)
     assert str(g) == g.board_state() + "\n" + "No winners!"
