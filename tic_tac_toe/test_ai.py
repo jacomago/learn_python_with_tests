@@ -9,6 +9,17 @@ def test_ai_plays():
     TTTai.play(g)
     assert g.position_used(Position(0, 0))
 
+def test_ai_plays_once():
+    g = Game()
+    player = g.current_player
+    TTTai.play(g)
+    count = 0
+    for row in g.board:
+        for col in row:
+            if col == g.current_player:
+                count += 1
+    assert count == 1
+
 
 def test_ai_plays_win_row():
     g = Game()
