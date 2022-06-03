@@ -37,7 +37,6 @@ class Game:
             self.current_player = self.player_two
         else:
             self.current_player = self.player_one
-        
 
     def get_position(self):
         while True:

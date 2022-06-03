@@ -20,7 +20,6 @@ def test_ai_plays_once():
                 count += 1
     assert count == 1
 
-
 def test_ai_plays_win_row():
     g = Game()
     game_player = g.current_player
