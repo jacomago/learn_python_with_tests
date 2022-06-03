@@ -30,11 +30,14 @@ class Game:
             return True
         return False
 
-    def reset_player(self):
-        if self.current_player == self.player_one:
+    def reset_player(self, last_player = None):
+        if not last_player:
+            last_player = self.current_player
+        if last_player == self.player_one:
             self.current_player = self.player_two
         else:
             self.current_player = self.player_one
+        
 
     def get_position(self):
         while True:
@@ -52,7 +55,7 @@ class Game:
             player = self.current_player
 
         self.update_board(player, position)
-        self.reset_player()
+        self.reset_player(last_player=player)
 
     def won(self, player):
         winning_list = [player for i in range(self.board_size)]

@@ -62,6 +62,46 @@ def test_get_position(monkeypatch):
     pgn = g.get_position()
     assert pgn == pn
 
+def test_play_default(monkeypatch):
+    g = Game()
+    pn = Position(0, 1)
+    assert not g.position_used(pn)
+    assert g.current_player == g.player_one
+    monkeypatch.setattr("builtins.input", lambda _: pn.input_str())
+    g.play()
+    assert g.position_used(pn)
+    assert g.current_player == g.player_two
+
+def test_play_player_set(monkeypatch):
+    g = Game()
+    pn = Position(0, 1)
+    assert not g.position_used(pn)
+    assert g.current_player == g.player_one
+    monkeypatch.setattr("builtins.input", lambda _: pn.input_str())
+    g.play(player=g.player_two)
+    assert g.position_used(pn)
+    assert g.board[pn.y][pn.x] == g.player_two
+    assert g.current_player == g.player_one
+
+def test_play_position_set():
+    g = Game()
+    pn = Position(0, 1)
+    assert not g.position_used(pn)
+    assert g.current_player == g.player_one
+    g.play(position=pn)
+    assert g.position_used(pn)
+    assert g.current_player == g.player_two
+
+def test_play_position_player_set():
+    g = Game()
+    pn = Position(0, 1)
+    assert not g.position_used(pn)
+    assert g.current_player == g.player_one
+    g.play(position=pn, player=g.player_two)
+    assert g.position_used(pn)
+    assert g.board[pn.y][pn.x] == g.player_two
+    assert g.current_player == g.player_one
+
 def test_game_finished():
     g = Game()
     assert not g.finished()
