@@ -154,6 +154,11 @@ def test_won_second_diag():
 
 
 def play_complete_board_without_win(g: Game):
+    """ 
+    o x x
+    x o o
+    x o x
+     """
     g.play(player=g.player_one, position=Position(0, 0))
     g.play(player=g.player_two, position=Position(0, 1))
     g.play(player=g.player_two, position=Position(0, 2))
