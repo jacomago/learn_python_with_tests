@@ -86,18 +86,6 @@ class Game:
 
         return False
 
-
-    def __str__(self):
-        board_state = self.board_state()
-        if self.finished():
-            if self.won(self.player_one):
-                return board_state + "\n" + win_message(self.player_one)
-            elif self.won(self.player_two):
-                return board_state + "\n" + win_message(self.player_two)
-            else:
-                return board_state + "\n" + "No winners!"
-        return board_state
-
     def complete_board(self):
         for row in self.board:
             for col in row:
@@ -113,6 +101,17 @@ class Game:
         ):
             return True
         return False
+
+    def __str__(self):
+        board_state = self.board_state()
+        if self.finished():
+            if self.won(self.player_one):
+                return board_state + "\n" + win_message(self.player_one)
+            elif self.won(self.player_two):
+                return board_state + "\n" + win_message(self.player_two)
+            else:
+                return board_state + "\n" + "No winners!"
+        return board_state
 
 
 def main_method():

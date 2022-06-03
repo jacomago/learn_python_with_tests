@@ -62,6 +62,7 @@ def test_get_position(monkeypatch):
     pgn = g.get_position()
     assert pgn == pn
 
+
 def test_play_default(monkeypatch):
     g = Game()
     pn = Position(0, 1)
@@ -71,6 +72,7 @@ def test_play_default(monkeypatch):
     g.play()
     assert g.position_used(pn)
     assert g.current_player == g.player_two
+
 
 def test_play_player_set(monkeypatch):
     g = Game()
@@ -83,6 +85,7 @@ def test_play_player_set(monkeypatch):
     assert g.board[pn.y][pn.x] == g.player_two
     assert g.current_player == g.player_one
 
+
 def test_play_position_set():
     g = Game()
     pn = Position(0, 1)
@@ -91,6 +94,7 @@ def test_play_position_set():
     g.play(position=pn)
     assert g.position_used(pn)
     assert g.current_player == g.player_two
+
 
 def test_play_position_player_set():
     g = Game()
@@ -102,6 +106,113 @@ def test_play_position_player_set():
     assert g.board[pn.y][pn.x] == g.player_two
     assert g.current_player == g.player_one
 
-def test_game_finished():
+
+def test_not_won():
+    g = Game()
+    assert not g.won(g.player_one)
+    assert not g.won(g.player_two)
+
+
+def test_won_row():
+    g = Game()
+    game_player = g.player_one
+    g.play(player=game_player, position=Position(0, 0))
+    g.play(player=game_player, position=Position(0, 1))
+    g.play(player=game_player, position=Position(0, 2))
+    assert g.won(game_player)
+
+
+def test_won_column():
+    g = Game()
+    game_player = g.player_one
+    g.play(player=game_player, position=Position(0, 0))
+    g.play(player=game_player, position=Position(1, 0))
+    g.play(player=game_player, position=Position(2, 0))
+    assert g.won(game_player)
+
+
+def test_won_first_diag():
+    g = Game()
+    game_player = g.player_one
+    g.play(player=game_player, position=Position(0, 0))
+    g.play(player=game_player, position=Position(1, 1))
+    g.play(player=game_player, position=Position(2, 2))
+    assert g.won(game_player)
+
+
+def test_won_second_diag():
+    g = Game()
+    game_player = g.player_one
+    g.play(player=game_player, position=Position(0, 2))
+    g.play(player=game_player, position=Position(1, 1))
+    g.play(player=game_player, position=Position(2, 0))
+    assert g.won(game_player)
+
+
+def test_complete_board():
+    g = Game(board_size=2)
+    assert not g.complete_board()
+    game_player = g.player_one
+    g.play(player=game_player, position=Position(0, 0))
+    g.play(player=game_player, position=Position(0, 1))
+    g.play(player=game_player, position=Position(1, 0))
+    g.play(player=game_player, position=Position(1, 1))
+    assert g.complete_board()
+
+
+def test_game_finished_init():
     g = Game()
     assert not g.finished()
+
+
+def test_game_finished_won():
+    g = Game()
+    game_player = g.player_one
+    g.play(player=game_player, position=Position(0, 0))
+    g.play(player=game_player, position=Position(0, 1))
+    g.play(player=game_player, position=Position(0, 2))
+    assert g.finished()
+
+
+def test_game_finished_complete_board():
+    g = Game()
+    g.play(player=g.player_one, position=Position(0, 0))
+    g.play(player=g.player_two, position=Position(0, 1))
+    g.play(player=g.player_two, position=Position(0, 2))
+    g.play(player=g.player_two, position=Position(1, 0))
+    g.play(player=g.player_one, position=Position(1, 1))
+    g.play(player=g.player_one, position=Position(1, 2))
+    g.play(player=g.player_two, position=Position(2, 0))
+    g.play(player=g.player_one, position=Position(2, 1))
+    g.play(player=g.player_two, position=Position(2, 2))
+    assert not g.won(g.player_one)
+    assert not g.won(g.player_two)
+    assert g.finished()
+
+
+def test_str_init():
+    g = Game()
+    assert str(g) == g.board_state()
+
+
+def test_str_win():
+    g = Game()
+    game_player = g.player_one
+    g.play(player=game_player, position=Position(0, 0))
+    g.play(player=game_player, position=Position(0, 1))
+    g.play(player=game_player, position=Position(0, 2))
+    assert str(g) == g.board_state() + "\n" + win_message(game_player)
+
+
+def test_str_stalemate():
+    g = Game()
+    g.play(player=g.player_one, position=Position(0, 0))
+    g.play(player=g.player_two, position=Position(0, 1))
+    g.play(player=g.player_two, position=Position(0, 2))
+    g.play(player=g.player_two, position=Position(1, 0))
+    g.play(player=g.player_one, position=Position(1, 1))
+    g.play(player=g.player_one, position=Position(1, 2))
+    g.play(player=g.player_two, position=Position(2, 0))
+    g.play(player=g.player_one, position=Position(2, 1))
+    g.play(player=g.player_two, position=Position(2, 2))
+    assert str(g) == g.board_state() + "\n" + "No winners!"
