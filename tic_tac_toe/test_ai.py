@@ -17,7 +17,7 @@ def test_ai_plays_once():
     count = 0
     for row in g.board:
         for col in row:
-            if col == g.current_player:
+            if col == player:
                 count += 1
     assert count == 1
 
