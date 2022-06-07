@@ -3,6 +3,10 @@ from tic_tac_toe.game import Game
 from tic_tac_toe.position import Position
 
 
+def dumb():
+    print("dumb")
+
+
 def test_ai_plays():
     g = Game(board_size=1)
     assert not g.position_used(Position(0, 0))
