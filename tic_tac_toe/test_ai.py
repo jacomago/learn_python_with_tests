@@ -1,10 +1,6 @@
-from tic_tac_toe.ai import TTTai
-from tic_tac_toe.game import Game
-from tic_tac_toe.position import Position
-
-
-def dumb():
-    print("dumb")
+from ai import TTTai
+from game import Game
+from position import Position
 
 
 def test_ai_plays():
@@ -86,23 +82,35 @@ def test_ai_blocks_play_diag():
     assert g.position_used(Position(2, 2))
 
 
-def test_ai_looks_ahead_by_one_diag():
-    g = Game()
-    g.play(player=g.player_one, position=Position(1, 1))
-    g.play(player=g.player_two, position=Position(0, 0))
-    g.play(player=g.player_two, position=Position(2, 2))
-    g.current_player = g.player_two
-    TTTai.play(g)
-    assert g.position_used(Position(0, 2)) or g.position_used((Position(2, 0)))
-
-
-def test_ai_looks_ahead_by_one_cross():
+def test_ai_looks_ahead_by_one():
+    """
+    _|x|_
+    x|o|o
+    _|_|_
+    """
     g = Game()
     g.play(player=g.player_two, position=Position(0, 1))
+    g.play(player=g.player_one, position=Position(1, 1))
     g.play(player=g.player_two, position=Position(1, 0))
+    g.play(player=g.player_one, position=Position(1, 2))
     g.current_player = g.player_two
     TTTai.play(g)
-    assert g.position_used(Position(1, 1))
+    assert g.position_used((Position(0, 0)))
+
+def test_ai_looks_ahead_by_one_switch():
+    """
+    _|o|_
+    x|o|_
+    _|x|_
+    """
+    g = Game()
+    g.play(player=g.player_two, position=Position(0, 1))
+    g.play(player=g.player_one, position=Position(1, 0))
+    g.play(player=g.player_two, position=Position(1, 2))
+    g.play(player=g.player_one, position=Position(1, 1))
+    g.current_player = g.player_two
+    TTTai.play(g)
+    assert g.position_used((Position(0, 2)))
 
 
 def test_ai_takes_centre():
