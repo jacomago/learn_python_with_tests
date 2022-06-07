@@ -9,6 +9,7 @@ def test_ai_plays():
     TTTai.play(g)
     assert g.position_used(Position(0, 0))
 
+
 def test_ai_plays_once():
     g = Game()
     player = g.current_player
@@ -19,6 +20,7 @@ def test_ai_plays_once():
             if col == g.current_player:
                 count += 1
     assert count == 1
+
 
 def test_ai_plays_win_row():
     g = Game()
@@ -103,6 +105,7 @@ def test_ai_takes_centre():
     g = Game()
     TTTai.play(g)
     assert g.position_used(Position(1, 1))
+
 
 def test_ai_takes_corner():
     g = Game()

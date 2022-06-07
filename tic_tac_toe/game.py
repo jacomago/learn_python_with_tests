@@ -30,7 +30,7 @@ class Game:
             return True
         return False
 
-    def reset_player(self, last_player = None):
+    def reset_player(self, last_player=None):
         if not last_player:
             last_player = self.current_player
         if last_player == self.player_one:
