@@ -2,36 +2,36 @@
 
 Themed around making a tower defense game.
 
-- [number]( https://github.com/jacomago/invent_with_python/blob/master/examples/test_numbers.py)
+- [number](test_numbers.py)
   - int
   - float
-- [variables]( https://github.com/jacomago/invent_with_python/blob/master/examples/test_variables.py)
+- [variables]( test_variables.py)
   - assign
   - type
   - change
-- [string](https://github.com/jacomago/invent_with_python/blob/master/examples/test_string.py)
+- [string](test_string.py)
   - join
   - alter
     - immutability
-- [tuples]( https://github.com/jacomago/invent_with_python/blob/master/examples/test_tuples.py)
+- [tuples]( test_tuples.py)
   - creation
   - indexing
   - values
-- [if](https://github.com/jacomago/invent_with_python/blob/master/examples/test_boolean.py)
+- [if](test_boolean.py)
   - else
   - elsif
   - Boolean logic
     - or
     - and
     - not
-- [loop](https://github.com/jacomago/invent_with_python/blob/master/examples/test_loop.py)
+- [loop](test_loop.py)
   - while
   - for
     - over range
-- [cli](https://github.com/jacomago/invent_with_python/blob/master/examples/test_cli.py)
+- [cli](test_cli.py)
   - print
   - input
-- [functions](https://github.com/jacomago/invent_with_python/blob/master/examples/test_fuctions.py)
+- [functions](test_fuctions.py)
   - input variables
     - named
     - typed
@@ -40,25 +40,25 @@ Themed around making a tower defense game.
     - one
     - many
     - typed
-- [list](https://github.com/jacomago/invent_with_python/blob/master/examples/test_list.py)
+- [list](test_list.py)
   - loop over index
   - loop over value
   - comprehension
   - in
   - append
-- [set](https://github.com/jacomago/invent_with_python/blob/master/examples/test_set.py)
+- [set](test_set.py)
   - creation
     - from list
     - comprehension
   - in
   - add
-- [dict](https://github.com/jacomago/invent_with_python/blob/master/examples/test_dict.py)
+- [dict](test_dict.py)
   - creation
   - get value
   - get key and value
   - loop over key
   - loop over value
-- [class](https://github.com/jacomago/invent_with_python/blob/master/examples/test_class.py)
+- [class](test_class.py)
   - object creation
   - methods
     - object method
