@@ -20,7 +20,7 @@ def test_eq():
 def test_get(monkeypatch):
     p0 = Position(3, 4)
     monkeypatch.setattr("builtins.input", lambda _: p0.input_str())
-    p = Position.get()
+    p = Position.input_position()
     assert p0 == p
 
 

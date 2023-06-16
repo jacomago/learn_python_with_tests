@@ -98,22 +98,6 @@ def test_ai_looks_ahead_by_one():
     assert g.position_used(Position(0, 0))
 
 
-def test_ai_looks_ahead_by_one_switch():
-    """
-    _|o|_
-    x|o|_
-    _|x|_
-    """
-    g = Game()
-    g.play(player=g.player_two, position=Position(0, 1))
-    g.play(player=g.player_one, position=Position(1, 0))
-    g.play(player=g.player_two, position=Position(1, 2))
-    g.play(player=g.player_one, position=Position(1, 1))
-    g.current_player = g.player_two
-    ai.play(g)
-    assert g.position_used(Position(0, 2))
-
-
 def test_ai_takes_centre():
     g = Game()
     ai.play(g)

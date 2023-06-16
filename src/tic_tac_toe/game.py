@@ -1,4 +1,4 @@
-from tic_tac_toe.position import Position
+from tic_tac_toe.position import input_position
 
 
 def win_message(player):
@@ -40,7 +40,7 @@ class Game:
 
     def get_position(self):
         while True:
-            position = Position.get()
+            position = input_position()
             if not self.position_used(position):
                 break
             else:
