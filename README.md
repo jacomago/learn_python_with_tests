@@ -1,10 +1,5 @@
 # learn_python_with_tests
 
-[![PyPI - Version](https://img.shields.io/pypi/v/learn-python-with-tests.svg)](https://pypi.org/project/learn-python-with-tests)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/learn-python-with-tests.svg)](https://pypi.org/project/learn-python-with-tests)
-
------
-
 Code for teaching Python.
 
 First Project ideas came from Invent with Python.
