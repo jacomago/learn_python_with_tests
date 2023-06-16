@@ -1,5 +1,3 @@
-
-
 from tic_tac_toe import ai
 from tic_tac_toe.game import Game
 from tic_tac_toe.position import Position

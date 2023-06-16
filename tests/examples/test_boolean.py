@@ -25,8 +25,8 @@ def test_elif():
 
 
 def test_not():
-    assert False is not True
-    assert True is not False
+    assert False is not True  # noqa: PLR0133
+    assert True is not False  # noqa: PLR0133
 
 
 def test_or():

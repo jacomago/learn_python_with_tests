@@ -1,6 +1,3 @@
-
-
-
 from tic_tac_toe.position import Position
 
 

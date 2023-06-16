@@ -1,3 +1,5 @@
+from collections import namedtuple
+
 import pytest
 
 
@@ -40,13 +42,9 @@ def test_data():
 
 def test_convert():
     tower = ("Normal", 100, 1, 300, "Electric")
-    l = list(tower)
-    assert l == ["Normal", 100, 1, 300, "Electric"]
-    assert type(l) is list
-
-
-#   - named tuple
-from collections import namedtuple
+    tower_list = list(tower)
+    assert tower_list == ["Normal", 100, 1, 300, "Electric"]
+    assert type(tower_list) is list
 
 
 def test_named_tuple():

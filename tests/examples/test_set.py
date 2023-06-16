@@ -7,7 +7,7 @@
 
 
 def test_creation():
-    s = {1, 1, 2, 3, 3}
+    s = {1, 1, 2, 3, 3}  # noqa: B033
     assert {1, 2, 3} == s
     assert {1, 2, 3} == s
 

@@ -38,7 +38,8 @@ def test_format_advanced():
     )
 
 
-# This shows that we get the error we expect when we try to just insert a new character in the string.
+# This shows that we get the error we expect when
+# we try to just insert a new character in the string.
 def test_immutability_again():
     s = "Cannon"
     with pytest.raises(TypeError) as e:
@@ -46,7 +47,8 @@ def test_immutability_again():
     assert str(e.value) == "'str' object does not support item assignment"
 
 
-# This gets around string immutability by making a new one using characters from the old.
+# This gets around string immutability by
+# making a new one using characters from the old.
 def test_immutability_workaround():
     s = "Cannon"
     assert s[0] + "o" + s[2:] == "Connon"
