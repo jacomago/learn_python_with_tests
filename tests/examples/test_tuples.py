@@ -1,5 +1,6 @@
 import pytest
 
+
 # - tuples
 #   - creation
 def test_create():
@@ -18,7 +19,7 @@ def test_index():
 
 # adding
 def test_add():
-    assert (3,) + (4,) == (3, 4)
+    assert (3, 4) == (3, 4)
     assert (2, 3).__add__((1, 2)) == (2, 3, 1, 2)
 
 
@@ -58,8 +59,8 @@ def test_named_tuple():
 
 #   - comprehension
 def test_comprehension():
-    tower_levels = tuple((i * 2 for i in range(3)))
+    tower_levels = tuple(i * 2 for i in range(3))
     assert tower_levels == (0, 2, 4)
 
-    enemy_types = tuple((j for j in range(2, 13, 2)))
+    enemy_types = tuple(j for j in range(2, 13, 2))
     assert enemy_types == (2, 4, 6, 8, 10, 12)

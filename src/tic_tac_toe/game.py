@@ -1,4 +1,7 @@
-from position import *
+
+
+
+from tic_tac_toe.position import Position
 
 
 def win_message(player):
@@ -48,9 +51,9 @@ class Game:
         return position
 
     def play(self, player=None, position=None):
-        if position == None:
+        if position is None:
             position = self.get_position()
-        if player == None:
+        if player is None:
             player = self.current_player
 
         self.update_board(player, position)

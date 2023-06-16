@@ -1,6 +1,5 @@
-from game import win_message
-from game import Game
-from position import Position
+from tic_tac_toe.game import Game, win_message
+from tic_tac_toe.position import Position
 
 
 def test_win_message():

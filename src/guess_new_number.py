@@ -1,4 +1,5 @@
 import random
+import sys
 
 
 def get_ranges():
@@ -10,7 +11,7 @@ def get_ranges():
 
 def play_game(a, b, guesses):
     number = random.randint(a, b)
-    for i in range(guesses):
+    for _i in range(guesses):
         if guess_workflow(number, a, b):
             return
 
@@ -42,13 +43,14 @@ def play_again():
         print("Please answer Y or N")
 
 
-ranges = get_ranges()
-play_game(*ranges)
+def main():
+    ranges = get_ranges()
+    play_game(*ranges)
 
-while True:
-    choice = play_again()
-    if not choice:
-        exit()
-    else:
-        ranges = get_ranges()
-        play_game(*ranges)
+    while True:
+        choice = play_again()
+        if not choice:
+            sys.exit()
+        else:
+            ranges = get_ranges()
+            play_game(*ranges)

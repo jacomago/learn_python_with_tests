@@ -1,8 +1,8 @@
 import random
+import sys
 
 
 def main():
-
     # Word bank of animals
     words = (
         "ant baboon badger bat bear beaver camel cat clam cobra cougar "
@@ -13,13 +13,18 @@ def main():
         "stork swan tiger toad trout turkey turtle weasel whale wolf "
         "wombat zebra "
     ).split()
-    N = max([len(word) for word in words])
-    word_dict = {n: [word for word in words if len(word) == n] for n in range(3, N + 1)}
+    max_word_length = max([len(word) for word in words])
+    word_dict = {
+        n: [word for word in words if len(word) == n]
+        for n in range(3, max_word_length + 1)
+    }
     word_length = 5
     words = word_dict[word_length]
 
     print(
-        "Hello, welcome to wordle. You must guess the correct ", word_length, "letter length word."
+        "Hello, welcome to wordle. You must guess the correct ",
+        word_length,
+        "letter length word.",
     )
     c_mod = "*"
     p_mod = "_"
@@ -36,7 +41,7 @@ def main():
     hanged = False
     allowed_guesses = 6
     all_correct, all_wrong_place, all_wrong = set(), set(), set()
-    alphabet = [l for l in "abcdefghijklmnopqrstuvxwyz"]
+    alphabet = list("abcdefghijklmnopqrstuvxwyz")
     previous_guesses_status = []
     while not hanged:
         all_correct, all_wrong_place, all_wrong, print_guess, guess = update_status(
@@ -52,7 +57,6 @@ def main():
 
 
 def update_status(words, word, all_correct, all_wrong_place, all_wrong):
-
     guess = get_guess(words)
 
     correct, wrong_place, wrong = get_word_status(word, guess)
@@ -73,7 +77,7 @@ def check_end_game(guess, word, n):
     else:
         return
     print("The word was:", word)
-    exit()
+    sys.exit()
 
 
 def get_guess(words):
@@ -92,34 +96,34 @@ def get_word_status(word, guess):
     wrong_place = set()
     wrong = set()
     for index in range(len(guess)):
-        l = guess[index]
-        if word[index] == l:
-            correct.add(l)
-        elif l in word:
-            wrong_place.add(l)
+        letter = guess[index]
+        if word[index] == letter:
+            correct.add(letter)
+        elif letter in word:
+            wrong_place.add(letter)
         else:
-            wrong.add(l)
+            wrong.add(letter)
     return correct, wrong_place, wrong
 
 
-def letter_status(l, correct, wrong_place):
-    if l in correct:
-        return "*" + l + "*"
-    elif l in wrong_place:
-        return "_" + l + "_"
+def letter_status(letter, correct, wrong_place):
+    if letter in correct:
+        return "*" + letter + "*"
+    elif letter in wrong_place:
+        return "_" + letter + "_"
     else:
-        return l
+        return letter
 
 
 def print_word_status(guess, correct, wrong_place):
     output = ""
-    for l in guess:
-        output += " " + letter_status(l, correct, wrong_place)
+    for letter in guess:
+        output += " " + letter_status(letter, correct, wrong_place)
     return output
 
 
 def win(letters, word):
-    if len([l for l in word if l not in letters]) == 0:
+    if len([letter for letter in word if letter not in letters]) == 0:
         return True
     return False
 
@@ -144,7 +148,9 @@ def print_status(
     print(
         "Letters left:",
         "".join(
-            l for l in alphabet if l not in (all_correct | all_wrong_place | all_wrong)
+            letter
+            for letter in alphabet
+            if letter not in (all_correct | all_wrong_place | all_wrong)
         ),
     )
     print("Previous guesses:")

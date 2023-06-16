@@ -7,6 +7,7 @@ def test_while():
     assert count == 0
     assert sum == 10
 
+
 def test_for():
     sum = 0
     for i in range(0, 10, 5):

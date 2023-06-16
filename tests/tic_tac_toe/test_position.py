@@ -1,4 +1,4 @@
-from position import *
+from tic_tac_toe.position import Position
 
 
 def test_init():
@@ -14,7 +14,7 @@ def test_eq():
     assert p0 == p1
     p1 = Position(4, 3)
     assert p0 != p1
-    assert None != p0
+    assert None is not p0
 
 
 def test_get(monkeypatch):

@@ -1,4 +1,3 @@
-
 # - dict
 #   - creation
 #   - get value
@@ -6,20 +5,23 @@
 #   - loop over key
 #   - loop over value
 
+
 def test_create():
-    d = dict()
+    d = {}
     d["damage"] = 10
     d["power"] = 20.0
     assert d == {"damage": 10, "power": 20.0}
 
+
 def test_comp():
-    d = {i: i*2 for i in [3, 4]}
+    d = {i: i * 2 for i in [3, 4]}
     assert d == {3: 6, 4: 8}
 
 
 def test_get_val():
     d = {"damage": 10, "power": 20.0}
     assert d["damage"] == 10
+
 
 def test_get_key_and_val():
     d = {"damage": 10, "power": 20.0}
@@ -29,6 +31,7 @@ def test_get_key_and_val():
         if k == "power":
             assert v == 20
 
+
 def test_loop_key():
     d = {"damage": 10, "power": 20.0}
     for k in d:
@@ -36,6 +39,7 @@ def test_loop_key():
             assert d[k] == 10
         if k == "power":
             assert d[k] == 20
+
 
 def test_loop_value():
     d = {"damage": 10, "power": 20.0}

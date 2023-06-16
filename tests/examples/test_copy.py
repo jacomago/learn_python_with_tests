@@ -1,9 +1,11 @@
 import copy
 
+
 class Cool:
     def __init__(self, x: int, y: list) -> None:
         self.x = x
         self.y = y
+
 
 def test_no_copy():
     c = Cool(3, [4])
@@ -15,6 +17,7 @@ def test_no_copy():
     assert c.y == [4]
     c.y.append(5)
     assert c.y == [4, 5]
+
 
 def test_copy():
     c = Cool(3, [4])
@@ -31,6 +34,7 @@ def test_copy():
     assert c3.y == [4, 5]
     assert c.y == [4, 5]
 
+
 def test_deepcopy():
     c = Cool(3, [4])
 
@@ -45,4 +49,3 @@ def test_deepcopy():
     c3.y.append(5)
     assert c3.y == [4, 5]
     assert c.y == [4]
-

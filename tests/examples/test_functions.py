@@ -52,7 +52,7 @@ def test_no_output():
     def fire():
         return
 
-    assert fire() == None
+    assert fire() is None
 
 
 def test_one_output():

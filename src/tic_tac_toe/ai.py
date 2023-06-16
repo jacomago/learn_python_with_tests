@@ -1,6 +1,7 @@
 from copy import deepcopy
-from game import Game
-from position import Position
+
+from tic_tac_toe.game import Game
+from tic_tac_toe.position import Position
 
 
 def check_all_pos(g: Game, player, check):
@@ -26,7 +27,6 @@ def check_position_wins(g: Game, player):
 
 
 def empty_corner(g: Game):
-    empty_corners = []
     for pos in [
         Position(0, 0),
         Position(0, g.board_size - 1),
@@ -45,29 +45,29 @@ def empty_centre(g: Game):
         return pos
     return None
 
-class TTTai:
-    def play(g: Game):
-        pos = check_all_pos_win(g, g.current_player)
-        if pos != None:
-            g.play(position=pos)
-            return
 
-        if g.current_player == g.player_one:
-            other_player = g.player_two
-        else:
-            other_player = g.player_one
+def play(game: Game):
+    pos = check_all_pos_win(game, game.current_player)
+    if pos is not None:
+        game.play(position=pos)
+        return
 
-        pos = check_all_pos_win(g, other_player)
-        if pos != None:
-            g.play(position=pos)
-            return
+    if game.current_player == game.player_one:
+        other_player = game.player_two
+    else:
+        other_player = game.player_one
 
-        pos = empty_centre(g)
-        if pos != None:
-            g.play(position=pos)
-            return
+    pos = check_all_pos_win(game, other_player)
+    if pos is not None:
+        game.play(position=pos)
+        return
 
-        pos = empty_corner(g)
-        if pos != None:
-            g.play(position=pos)
-            return
+    pos = empty_centre(game)
+    if pos is not None:
+        game.play(position=pos)
+        return
+
+    pos = empty_corner(game)
+    if pos is not None:
+        game.play(position=pos)
+        return

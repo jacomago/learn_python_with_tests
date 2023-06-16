@@ -3,7 +3,7 @@ class Car:
         self.make = make
         self.model_number = model_number
         self.color = color
-    
+
     def drive(self, direction):
         print("drive in direction:", direction)
 
@@ -12,6 +12,7 @@ class Car:
 
     def details(self):
         print("details are ", self.make, self.model_number, self.color)
+
 
 new_car = Car("ferrari", 34, "red")
 
